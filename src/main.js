@@ -6,7 +6,7 @@ export function configure(aurelia) {
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'));
 
-  aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
+  // aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));

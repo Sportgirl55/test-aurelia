@@ -60,7 +60,11 @@
                   Запросить данные
                 </button>
 
-                <span>${items}</span>
+                <ul>
+                  <li repeat.for="item of allItems">
+                    <span>${item.name}</span>
+                  </li>
+                </ul>
 
               </form>
 
@@ -82,3 +86,4 @@
 
 <!-- _embedded.orgUnits[0].name -->
 <!-- <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator> -->
+
