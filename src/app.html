@@ -1,0 +1,84 @@
+<template>
+  <require from="./styles.scss"></require>
+
+  <div class="header-box">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Title</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+
+          <div class="container">
+            <div class="input-box">
+              <h1>${message}</h1>
+              <p>${title}</p>
+
+              <form submit.trigger="addText()">
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" id="sample1" value.bind="text" />
+                  <label class="mdl-textfield__label" for="sample1">Напиши что-нибудь...</label>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                  type="submit">
+                  Нажми меня
+                </button>
+              </form>
+              <ul>
+                <li repeat.for="texts of textArray">
+                  <span class="number">${textArray.indexOf(texts) + 1} </span>
+                  <span>. ${texts.texts[0].toUpperCase() + texts.texts.substring(1)}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="data-box">
+              <form submit.trigger="getItems()" class="form">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                  type="submit">
+                  Запросить данные
+                </button>
+
+                <span>${items}</span>
+
+              </form>
+
+              <div class="spinner-wrapper ">
+                <div class="mdl-spinner mdl-js-spinner ${api.isRequesting ? 'is-active' : ''}" mdl="spinner"></div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+
+</template>
+
+<!-- _embedded.orgUnits[0].name -->
+<!-- <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator> -->
